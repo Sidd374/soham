@@ -26,8 +26,6 @@ pytz==2021.1
 react==4.3.0
 requests==2.26.0
 six==1.16.0
-torch==1.9.1
-torchvision==0.10.1
 typing-extensions==3.10.0.2
 urllib3==1.26.6
 webrtcvad==2.0.10
