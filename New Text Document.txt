@@ -1,0 +1,5 @@
+mysql GRANT ALL PRIVILEGES ON sohamgu4_ngma_db TO 'sohamgu4_ngma'@'27.34.68.178' identified by ngmaMysql*123
+
+mysql -u sohamgu4_ngma -h 43.225.54.56 -p
+
+ngmaMysql*123

@@ -1,0 +1,298 @@
+.user_profile {
+  position: relative;
+  text-align: center;
+}
+.user_profile_bg {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: auto;
+  width: 100%;
+  height: 18rem;
+  z-index: -10;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.user_profile_bg > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.user_profile-detials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12rem;
+}
+.border-userprofile {
+  height: 3px;
+  width: 40%;
+  background-color: #e74c3c;
+}
+.user_profile-img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  padding: 0.2rem;
+  background-color: #e74c3c;
+  border-radius: 50%;
+}
+.user_profile-name {
+  margin: 0.5rem 0;
+  font-size: 2.3rem;
+}
+.user_profile-about {
+  font-size: 1.3rem;
+  width: 50%;
+  margin: auto;
+}
+.userprofile-about-wrap {
+  position: relative;
+}
+.user_profile_nav {
+  position: absolute;
+  top: 50%;
+  right: 20%;
+}
+.user_profile-socialMedia {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_profile-socialMedia > i {
+  font-size: 2rem;
+  cursor: pointer;
+  background: rgb(185, 184, 184);
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.6rem 0.8rem;
+  border-radius: 20%;
+}
+.user_profile-socialMedia > i:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.user_profile-status {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user_profile-status a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #676767;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user_profile-status a strong {
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+.user_profile-status i {
+  font-size: 14px;
+  padding: 5px;
+  margin-right: 0.7rem;
+  color: #3d3d3d;
+}
+.user_profile-status a:not(:last-child) {
+  border-right: 3px solid #e9493a;
+}
+.user_profile-status span {
+  display: block;
+}
+.user_profile-contactInfo {
+  margin: 2rem 0;
+}
+.user_profile-contactInfo > span {
+  font-size: 1.3rem;
+}
+.user_profile-contactInfo > span > i {
+  color: #3d3d3d;
+  margin-right: 1rem;
+}
+
+/*url */
+.url-exhibition {
+  margin-top: 30px;
+  width: 40%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+.url-exh-1,
+.url-exh {
+  width: 250px;
+  margin: 10px;
+  background-color: #e8e8e8;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #676767;
+}
+.url-exh-1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 20px;
+  margin-right: 20px;
+}
+.url-exh-1 input {
+  background-color: transparent;
+  outline: none;
+  width: 100%;
+  border: none;
+}
+.url-exh {
+  margin-left: 20px;
+}
+.url-exh button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #676767;
+  font-size: 16px;
+}
+/* User Profile Tab */
+.user_profile_container--tabs {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+.user_profile_container--tabs .nav-tabs {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  position: relative;
+}
+.user_profile_container--tabs .nav-tabs > li:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.user_profile_container--tabs .nav-tabs > li > a {
+  text-decoration: none;
+  color: #000;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 12px;
+}
+.user_profile_container--tabs .nav-tabs > a {
+  position: absolute;
+  top: 50%;
+  left: 5rem;
+  text-decoration: none;
+  color: #000;
+  font-size: 1.4rem;
+  display: block;
+  margin-right: 1rem;
+}
+.user_profile_container--tabs .nav-tabs > a:hover {
+  text-decoration: underline;
+}
+.user_profile_container--tabs .nav-tabs > a > span {
+  margin-left: 1rem;
+}
+.user_profile_container--tabs .nav-tabs > li > a:hover {
+  border-color: #eee #eee #ddd;
+}
+.user_profile_container--tabs .nav-tabs > li.active > a,
+.user_profile_container--tabs .nav-tabs > li.active > a:hover,
+.user_profile_container--tabs .nav-tabs > li.active > a:focus {
+  color: white;
+  cursor: default;
+  background-color: #e74c3c;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.user_profile_container--tabs .tab-content {
+  float: left;
+  width: 100%;
+}
+.user_profile_container--tabs .tab-content > .tab-pane {
+  display: none;
+}
+.user_profile_container--tabs .tab-content > .tab-pane.active {
+  display: block;
+}
+.user_profile_container--tabs .tab-content > .active {
+  display: block;
+}
+
+/*add post card*/
+.add-post-card {
+  height: 300px;
+  width: 300px;
+  background-color: #d2d2d2;
+
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='gray' stroke-width='6' stroke-dasharray='16%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  box-shadow: none !important;
+  border-radius: 0px !important;
+}
+.add-post-card div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: none !important;
+}
+.add-post-card div i {
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+.posts-heading {
+  padding-top: 30px;
+  font-size: 26px;
+  font-family: sans-serif;
+  font-weight: 300 !important;
+  border-bottom: 3px solid #e9493a;
+}
+
+.banner-icons {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-70px);
+}
+.banner-icons button {
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.466);
+  height: 48px;
+  width: 48px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  margin: 0 10px;
+  cursor: pointer !important;
+}
+
+
+.img-post{
+    width: 100%;
+    min-height: 12rem;
+    object-fit: cover;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: #3d3d3d;
+}
+
+.post-info > a > img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+}

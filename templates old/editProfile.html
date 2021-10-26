@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="images/5-soham.png">
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/0ccd48ad8b.js" crossorigin="anonymous"></script>
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/editProfile.css">
+
+    <title>So-ham</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="header">
+        <div class="header_div">
+            <img class="header_img header_img-1" src="../img/5-soham.png" alt="so-ham logo">
+            <img class="header_img header_img-2" src="../img/2-sanskriti.png" alt="">
+            <img class="header_img header_img-3" src="../img/MOC Final LOGO (1).png" alt="MOC logo">
+            <img class="header_img header_img-4" src="../img/4-NGMA - 1.png" alt="NGMA logo">
+        </div>
+        <div class="header_div">
+            <h1 class="header_heading">So'Ham</h1>
+        </div>
+        <div class="header_div header_div-btn">
+            <div class="header_div-userImg"><img src="../img/user.png" alt=""></div>
+            <a href="./submitForm.html" class="header_div-submit">Submit</a>
+        </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section class="navigation" id="navBar">
+        <div class="nav">
+            <a class="nav_link" href="./homePage.html">Home</a>
+            <i class="fa fa-bars nav_icon" aria-hidden="true"></i>
+            <a class="nav_link" href="./theme.html">Theme of the month</a>
+            <a class="nav_link" href="./blog.html">Blog</a>
+            <a class="nav_link" href="./museumCorner.html">Museum's Corner</a>
+            <a class="nav_link" href="./about.html">About us</a>
+            <a class="nav_link" href="./contact.html">Contact us</a>
+            <div class="nav_dropdown">
+                <button class="nav_dropbtn nav_link">More...
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="nav_dropdown-content">
+                    <a href="./events.html">Events</a>
+                    <a href="./exhibitions.html">Exhibitions</a>
+                    <a href="./livestream.html">Live Streams</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="edit_profile">
+        <a href="./userProfile.html" class="back_icon"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        <h1>Edit Profile</h1>
+        <p>People visiting your profile will see the following info</p>
+        <form class="edit_profile-form" action="">
+            <div class="form_group">
+                <img id="photo" src="../img/user.png" alt="">
+                <input type="file" id="profile_image" accept="image/*">
+                <label class="profile_image-label" id="uploadBtn" for="profile_image">Change Profile Photo</label>
+            </div>
+            <strong>PERSONAL DETAILS</strong>
+            <div class="form_groups">
+                <div class="form_group">
+                    <label class="form-label" for="first_name">First name</label>
+                    <input class="form-input" type="text" id="first_name" placeholder="First name"> 
+                </div>     
+                <div class="form_group">
+                    <label class="form-label" for="last_name">Last name</label>
+                    <input class="form-input" type="text" id="last_name" placeholder="Last name"> 
+                </div>           
+            </div>
+            <div class="form_groups">
+                <div class="form_group">
+                    <label class="form-label" for="dob">DOB</label>
+                    <input class="form-input" type="date" id="dob"> 
+                </div>     
+                <div class="form_group">
+                    <label class="form-label" for="gender">Gender</label>
+                    <select class="form-input" name="options" id="gender">
+                        <option value="">SELECT</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>           
+            </div>
+            <div class="form_group">
+                <label class="form-label" for="message">What connects you to art?</label>
+                <textarea class="form-input" id="message" style="height: 6rem;"></textarea>
+            </div>    
+            <strong>Change Password</strong>
+            <div class="form_groups">
+                <div class="form_group">
+                    <label class="form-label" for="password">Password</label>
+                    <input class="form-input" type="password" id="password" placeholder="Password"> 
+                </div>     
+                <div class="form_group">
+                    <label class="form-label" for="last_name">Confirm Passwrod</label>
+                    <input class="form-input" type="password" id="last_name" placeholder="Confirm Passwrod"> 
+                </div>           
+            </div>
+            <strong>Contact Details</strong>
+            <div class="form_groups">
+                <div class="form_group">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-input" type="email" id="email" placeholder="Email"> 
+                </div>     
+                <div class="form_group">
+                    <label class="form-label" for="notification email">Notification Email</label>
+                    <input class="form-input" type="password" id="notification email" placeholder="Notification Email"> 
+                </div>           
+            </div>
+            <div class="form_group">
+                <label class="form-label" for="phone">Contact Number</label>
+                <input class="form-input" type="number" id="phone" placeholder="Contact Number" style="width: 40%;"> 
+            </div>            
+            <div class="form_group">
+                <label class="form-label" for="address">Address</label>
+                <input class="form-input" type="text" id="address" placeholder="Address"> 
+            </div>  
+            <div class="form_groups">
+                <div class="form_group">
+                    <label class="form-label" for="city">City</label>
+                    <input class="form-input" type="text" id="city" placeholder="City"> 
+                </div>     
+                <div class="form_group">
+                    <label class="form-label" for="state">State</label>
+                    <input class="form-input" type="text" id="state" placeholder="State"> 
+                </div>           
+            </div>
+            <div class="form_groups">
+                <div class="form_group">
+                    <label class="form-label" for="pin_code">PIN Code</label>
+                    <input class="form-input" type="number" id="pin_code" placeholder="PIN Code"> 
+                </div>     
+                <div class="form_group">
+                    <label class="form-label" for="country">Country</label>
+                    <input class="form-input" type="text" id="country" placeholder="Country"> 
+                </div>           
+            </div>
+            <strong>Public Contact Details</strong>
+            <div class="form_groups">
+                <div class="form_group">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-input" type="email" id="email" placeholder="Email"> 
+                </div>     
+                <div class="form_group">
+                    <label class="form-label" for="skype">Skype ID</label>
+                    <input class="form-input" type="password" id="skype" placeholder="Skype ID"> 
+                </div>           
+            </div>
+            <strong>Social Network Links</strong>
+            <div class="form_groups">
+                <div class="form_group">
+                    <label class="form-label" for="facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</label>
+                    <input class="form-input" type="text" id="facebook" placeholder="Facebook"> 
+                </div>     
+                <div class="form_group">
+                    <label class="form-label" for="youtube"><i class="fa fa-youtube" aria-hidden="true"></i> Youtube</label>
+                    <input class="form-input" type="text" id="youtube" placeholder="Youtube"> 
+                </div>           
+            </div>
+            <div class="form_groups">
+                <div class="form_group">
+                    <label class="form-label" for="twitter"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</label>
+                    <input class="form-input" type="text" id="twitter" placeholder="Twitter"> 
+                </div>     
+                <div class="form_group">
+                    <label class="form-label" for="google"><i class="fa fa-google-plus-square" aria-hidden="true"></i> Google+</label>
+                    <input class="form-input" type="text" id="google" placeholder="Google+"> 
+                </div>           
+            </div>
+            <div class="form_group">
+                <label class="form-label" for="instagram"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</label>
+                <input class="form-input" type="text" placeholder="Instagram" style="width: 40%;">
+            </div>
+            <div class="form_btns">
+                <button class="form_btn form_btn-reset" type="reset">Reset</button>
+                <button class="form_btn form_btn-save" type="submit">Save</button>
+            </div>
+        </form>
+    </section>
+
+
+    <script>
+        const img = document.querySelector('#photo');
+        const file = document.querySelector('#profile_image');
+        file.addEventListener('change', function(){
+            //this refers to file
+            const choosedFile = this.files[0];
+
+            if (choosedFile) {
+
+                const reader = new FileReader(); //FileReader is a predefined function of JS
+
+                reader.addEventListener('load', function(){
+                    img.setAttribute('src', reader.result);
+                });
+
+                reader.readAsDataURL(choosedFile);
+            }
+        });
+        var height = document.getElementById("navBar").offsetTop;
+        window.onscroll = function(){
+        if (window.pageYOffset > height) {
+            document.getElementById('navBar').classList.add('fixed');
+            [...document.querySelectorAll('.nav_link')].map(function(el){
+                el.style.color = "white";
+            })
+        }
+        else {
+            document.getElementById('navBar').classList.remove('fixed');
+            [...document.querySelectorAll('.nav_link')].map(function(el){
+                el.style.color = "#3d3d3d";
+            })
+        }
+        };
+    </script>
+</body>
+</html>

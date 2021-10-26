@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="images/5-soham.png">
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/0ccd48ad8b.js" crossorigin="anonymous"></script>
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/userProfile.css">
+    <link rel="stylesheet" href="../css/posts.css">
+    <link rel="stylesheet" href="../css/popup.css">
+
+    <title>So-ham</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="header">
+        <div class="header_div">
+            <img class="header_img header_img-1" src="../img/5-soham.png" alt="so-ham logo">
+            <img class="header_img header_img-2" src="../img/2-sanskriti.png" alt="">
+            <img class="header_img header_img-3" src="../img/MOC Final LOGO (1).png" alt="MOC logo">
+            <img class="header_img header_img-4" src="../img/4-NGMA - 1.png" alt="NGMA logo">
+        </div>
+        <div class="header_div">
+            <h1 class="header_heading">So'Ham</h1>
+        </div>
+        <div class="header_div header_div-btn">
+            <div class="header_div-userImg"><img src="../img/user.png" alt=""></div>
+            <a href="./submitForm.html" class="header_div-submit">Submit</a>
+        </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section class="navigation" id="navBar">
+        <div class="nav">
+            <a class="nav_link" href="./homePage.html">Home</a>
+            <i class="fa fa-bars nav_icon" aria-hidden="true"></i>
+            <a class="nav_link" href="./theme.html">Theme of the month</a>
+            <a class="nav_link" href="./blog.html">Blog</a>
+            <a class="nav_link" href="./museumCorner.html">Museum's Corner</a>
+            <a class="nav_link" href="./about.html">About us</a>
+            <a class="nav_link" href="./contact.html">Contact us</a>
+            <div class="nav_dropdown">
+                <button class="nav_dropbtn nav_link">More...
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="nav_dropdown-content">
+                    <a href="./events.html">Events</a>
+                    <a href="./exhibitions.html">Exhibitions</a>
+                    <a href="./livestream.html">Live Streams</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Profile -->
+    <section class="user_profile" id="userProfile">
+        <div class="user_profile_bg"><img src="../img/homeBg.png" alt=""></div>
+        <div class="user_profile-detials">
+            <img class="user_profile-img" src={{ profile_details.pp_link }} alt="">
+            <h4 class="user_profile-name">{{ profile_details.display_name }}</h4>
+            <p class="user_profile-about"></p>
+            <div class="user_profile-status">
+                <a href="#popup"><strong>{{ profile_details.follows }}</strong><span><i class="fa fa-user-o" aria-hidden="true"></i>Followers</span></a>
+                <a href="#popup"><strong>{{ profile_details.following }}</strong><span><i class="fa fa-user-o" aria-hidden="true"></i>Following</span></a>
+                <a href=""><strong>10</strong><span><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Media Views</span></a>
+                <a href=""><strong>{{ profile_details.likes }}</strong><span><i class="fa fa-eye" aria-hidden="true"></i>Total Likes</span></a>
+            </div>
+            <div class="user_profile-socialMedia">
+                <i class="fa fa-google-plus" aria-hidden="true"></i>
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-youtube-play" aria-hidden="true"></i>
+            </div>
+            <div class="user_profile-contactInfo">
+                <span><i class="fa fa-envelope" aria-hidden="true"></i>{{ profile_details.user_email}}</span>
+            </div>
+
+            <a href="follow/{{ profile_details.ID }}">
+                        Follow
+        </a>
+        </div>
+    </section>
+    <div class="user_profile_container--tabs">
+        <section class="row">
+            <ul class="user_profile_nav nav-tabs">
+                <a href="./editProfile.html"><i class="fa fa-pencil" aria-hidden="true"></i><span>Edit Profile</span></a>
+                <li class="active"><a href="#tab-1">Media Files</a></li>
+                <li class=""><a href="#tab-2">Media Likes</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane active"> 
+                    <span class="glyphicon glyphicon-leaf glyphicon--home--feature two columns text-center"></span>
+                    <span class="col-md-10">
+                        <!-- Post Section -->
+                            <section class="posts">
+    <div class="posts-container">
+        {% if (posts is defined) and posts %}
+            {%  for post in posts %}
+
+                <div class="post-card">
+          <a href="./artDescription.html">
+            <img
+              class="img-post"
+              src={{ post.guid }}
+              alt=""
+            />
+            <i
+              class="fa fa-video-camera post_video-icon"
+              aria-hidden="true"
+            ></i>
+            <span class="post-date">
+              <i
+                class="fa fa-calendar-o post_calender-icon"
+                aria-hidden="true"
+              ></i
+              ><span>{{ post.post_date }}</span>
+            </span>
+            <span class="post-heading">{{ post.post_title }}</span>
+
+            <div class="post-info-likesView">
+              <small
+                ><a class="fa fa-thumbs-up" href="profile_like/{{ post.post_author }}/{{ post.ID }}" aria-hidden="true"></a
+                >&nbsp;{{ post.likes }}</small
+              >
+              <small
+                ><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{ post.views }}</small
+              >
+            </div>
+          </a>
+        </div>
+
+            {% endfor %}
+        {% else %}
+            No posts to show.
+        {% endif %}
+</div>
+
+    </section>
+                    </span>
+                </div> 
+                <div id="tab-2" class="tab-pane">
+                    <span class="glyphicon glyphicon-fire glyphicon--home--feature two columns text-center"></span>
+                    <span class="col-md-10">
+                        <section class="posts">
+    <div class="posts-container">
+        {% if (profile_posts is defined) and profile_posts %}
+            {%  for post in posts %}
+
+                <div class="post-card">
+          <a href="./artDescription.html">
+            <img
+              class="img-post"
+              src={{ post.guid }}
+              alt=""
+            />
+            <i
+              class="fa fa-video-camera post_video-icon"
+              aria-hidden="true"
+            ></i>
+            <span class="post-date">
+              <i
+                class="fa fa-calendar-o post_calender-icon"
+                aria-hidden="true"
+              ></i
+              ><span>{{ post.post_date }}</span>
+            </span>
+            <span class="post-heading">{{ post.post_title }}</span>
+            <div class="post-info">
+              <img
+                src={{ post.pp_link }}
+                alt=""
+              />
+              <a href="profile/{{ post.post_author }}" class="post-info-name">
+                {{ post.post_author_name }}</a
+              >
+            </div>
+            <div class="post-info-likesView">
+              <small
+                ><a class="fa fa-thumbs-up" href="like/{{ post.post_author }}/{{ post.ID }}" aria-hidden="true"></a
+                >&nbsp;{{ post.likes }}</small
+              >
+              <small
+                ><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;{{ post.views }}</small
+              >
+
+            </div>
+          </a>
+        </div>
+
+            {% endfor %}
+        {% else %}
+            Empty!
+        {% endif %}
+</div>
+
+    </section>
+                    </span>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup__content">
+            <a href="#userProfile" class="popup__close">&times;</a>
+            <h1 class="follow_info">250 Followers</h1>
+            <div class="follow_container">
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-1.jpg" alt="">
+                        <span>User 1</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-2.jpg" alt="">
+                        <span>User 2</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-3.jpg" alt="">
+                        <span>User 3</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-4.jpg" alt="">
+                        <span>User 4</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-1.jpg" alt="">
+                        <span>User 1</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-2.jpg" alt="">
+                        <span>User 2</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-3.jpg" alt="">
+                        <span>User 3</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-4.jpg" alt="">
+                        <span>User 4</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-1.jpg" alt="">
+                        <span>User 1</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-2.jpg" alt="">
+                        <span>User 2</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-3.jpg" alt="">
+                        <span>User 3</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-4.jpg" alt="">
+                        <span>User 4</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup__content">
+            <a href="#userProfile" class="popup__close">&times;</a>
+            <h1 class="follow_info">30 Following</h1>
+            <div class="follow_container">
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-1.jpg" alt="">
+                        <span>User 1</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-2.jpg" alt="">
+                        <span>User 2</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-3.jpg" alt="">
+                        <span>User 3</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-4.jpg" alt="">
+                        <span>User 4</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-1.jpg" alt="">
+                        <span>User 1</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-2.jpg" alt="">
+                        <span>User 2</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-3.jpg" alt="">
+                        <span>User 3</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-4.jpg" alt="">
+                        <span>User 4</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-1.jpg" alt="">
+                        <span>User 1</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-2.jpg" alt="">
+                        <span>User 2</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-3.jpg" alt="">
+                        <span>User 3</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                <div class="follow_cards">
+                    <div class="follow_cards-info">
+                        <img src="../img/user-4.jpg" alt="">
+                        <span>User 4</span>
+                    </div>
+                    <button class="follow_cards-btn">Follow</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        var height = document.getElementById("navBar").offsetTop;
+        window.onscroll = function(){
+        if (window.pageYOffset > height) {
+            document.getElementById('navBar').classList.add('fixed');
+            [...document.querySelectorAll('.nav_link')].map(function(el){
+                el.style.color = "white";
+            })
+        }
+        else {
+            document.getElementById('navBar').classList.remove('fixed');
+            [...document.querySelectorAll('.nav_link')].map(function(el){
+                el.style.color = "#3d3d3d";
+            })
+        }
+        };
+        window.addEventListener("load", function() {
+            // store tabs variable
+        var myTabs = document.querySelectorAll("ul.nav-tabs > li");
+        function myTabClicks(tabClickEvent) {
+                for (var i = 0; i < myTabs.length; i++) {
+                    myTabs[i].classList.remove("active");
+                }
+                var clickedTab = tabClickEvent.currentTarget;
+                clickedTab.classList.add("active");
+                tabClickEvent.preventDefault();
+                var myContentPanes = document.querySelectorAll(".tab-pane");
+                for (i = 0; i < myContentPanes.length; i++) {
+                    myContentPanes[i].classList.remove("active");
+                }
+                var anchorReference = tabClickEvent.target;
+                var activePaneId = anchorReference.getAttribute("href");
+                var activePane = document.querySelector(activePaneId);
+                activePane.classList.add("active");
+            }
+            for (i = 0; i < myTabs.length; i++) {
+                myTabs[i].addEventListener("click", myTabClicks)
+            }
+        });
+    </script>
+</body>
+</html>

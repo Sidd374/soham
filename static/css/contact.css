@@ -1,0 +1,70 @@
+/* background-image: linear-gradient(
+    105deg
+    , rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
+        background-size: 100%;
+        border-radius: 3px;
+        box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 20%); */
+.contact_container{
+    height: max-content;
+    width: 100%;
+    margin: auto;
+    background-image: linear-gradient(
+    75deg
+    , rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 60%, transparent 60%),
+     url(../img/Soham\ 100\ Images/img_40.jpg);
+    background-size: 100%;
+    border-radius: 3px;
+    background-size: cover;
+}
+.contact_form{
+    width: 55%;
+    padding: 4rem;
+}
+.contact_form > h1{
+    font-size: 3rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #e74c3c;
+}
+.contact_form > .form_group{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+.contact_form > .form_group > span{
+    font-size: 1.3rem;
+}
+.contact_form > .form_group > input{
+    width: 70%;
+    font-size: 1.1rem;
+    background-color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+.contact_form > .form_group > textarea{
+    font-family: inherit;
+    width: 70%;
+    font-size: 1.1rem;
+    background-color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+.contact_form > .form_group > input:focus{border-bottom: 2px solid #e74c3c;}
+.contact_form > .form_group > textarea:focus{border-bottom: 2px solid #e74c3c;}
+.contact_form > button{
+    background-color: #e74c3c;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+    color: white;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+} 
+.contact_form > button:hover{opacity: 0.9;}

@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  width: 98%;
+  height: 100%;
+  margin: 0 1%;
+}
+/*navbar*/
+.navbar {
+  margin-top: 30px;
+  height: 60px;
+  width: 100%;
+  background-color: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+}
+.nav-imgs,
+.right-nav {
+  flex: 0.2;
+  margin: 40px;
+}
+.navbar p {
+  flex: 0.6;
+  text-align: center;
+  margin-bottom: 0;
+}
+.nav-imgs img {
+  height: 60px;
+  padding-right: 30px;
+}
+@media screen and (max-width: 700px) {
+  .nav-imgs img {
+    height: 20px;
+    padding-right: 3px;
+  }
+  .nav-imgs {
+    margin: 10px;
+  }
+}
+
+/*header*/
+
+.header1 {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  height: 60px;
+  border-radius: 4px;
+  background-color: #eaeaea;
+  align-items: center;
+  justify-content: space-between;
+}
+.left-header {
+  display: flex;
+  align-items: center;
+}
+.left-header a {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 20px;
+  margin: 0 6px;
+  text-decoration: none;
+  color: black;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.header1 .active {
+  color: white;
+  background: linear-gradient(45deg, #f68a28, #ffbf5e);
+}
+.right-header {
+  background-color: white;
+  height: 48px;
+  padding: 0 20px;
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  color: #b4b4b4;
+  border-radius: 4px;
+}
+@media screen and (max-width: 700px) {
+  .left-header a {
+    font-size: 10px;
+    padding: 0 10px;
+  }
+  .right-header {
+    padding: 0 2px;
+  }
+}
+
+/*contents*/
+.ve-contents {
+  padding-bottom: 60px;
+}
+.ve-content {
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+}
+.ve-content .left {
+  flex: 0.6;
+  width: 100%;
+}
+.ve-content .left img {
+  width: 100%;
+}
+.ve-content .right {
+  flex: 0.4;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+.ve-content .right img {
+  width: 200px;
+}
+.ve-content .right h3 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.ve-content .right h5 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 15px;
+}
+.ve-content .right .content-desc {
+  margin-top: 20px;
+  line-height: 25px;
+}
+.contents-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.ve-content-inverse {
+  flex-direction: row-reverse;
+}
+.content-imgs img {
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#datepicker input,
+#datepicker span {
+  background-color: white !important;
+  border: none;
+  box-shadow: none;
+}
+#datepicker input {
+  cursor: pointer;
+}
+.datepicker th {
+  font-size: 13px;
+}
+.datepicker .day {
+  font-size: 10px;
+}
+.datepicker .active {
+  background: #f78c2a !important;
+  border-radius: 2px;
+}
+.ch-mob {
+  display: none;
+}
+
+@media screen and (max-width: 1020px) {
+  .ve-content {
+    flex-direction: column;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgb(207, 207, 207);
+  }
+
+  .contents-header {
+    display: none;
+  }
+  .ch-mob {
+    display: flex;
+    margin-bottom: 0px;
+  }
+  #datepicker input {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .content-imgs img {
+    margin-right: 0px;
+    width: 120px !important;
+  }
+}

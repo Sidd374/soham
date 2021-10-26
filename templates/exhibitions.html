@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- --datepicker-
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet"
+        type="text/css" /> -->
+    
+    <link rel="shortcut icon" type="image/png" href="images/5-soham.png">
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/0ccd48ad8b.js" crossorigin="anonymous"></script>
+    <!-- StyleSheets -->
+    
+    <link rel="stylesheet" href="../css/virtualExhibition.css">
+    <link rel="stylesheet" href="../css/base.css">
+    
+
+
+    <title>So-ham</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="header">
+        <div class="header_div">
+            <img class="header_img header_img-1" src="../img/5-soham.png" alt="so-ham logo">
+            <img class="header_img header_img-2" src="../img/2-sanskriti.png" alt="">
+            <img class="header_img header_img-3" src="../img/MOC Final LOGO (1).png" alt="MOC logo">
+            <img class="header_img header_img-4" src="../img/4-NGMA - 1.png" alt="NGMA logo">
+        </div>
+        <div class="header_div">
+            <h1 class="header_heading">So'Ham</h1>
+        </div>
+        <div class="header_div header_div-btn">
+            <div class="header_div-userImg"><img src="../img/user.png" alt=""></div>
+            <a href="./submitForm.html" class="header_div-submit">Submit</a>
+        </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section class="navigation" id="navBar">
+        <div class="nav">
+            <a class="nav_link" href="./homePage.html">Home</a>
+            <i class="fa fa-bars nav_icon" aria-hidden="true"></i>
+            <a class="nav_link" href="./theme.html">Theme of the month</a>
+            <a class="nav_link" href="./blog.html">Blog</a>
+            <a class="nav_link" href="./museumCorner.html">Museum's Corner</a>
+            <a class="nav_link" href="./about.html">About us</a>
+            <a class="nav_link" href="./contact.html">Contact us</a>
+            <div class="nav_dropdown">
+                <button class="nav_dropbtn nav_link">More...
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="nav_dropdown-content">
+                    <a href="./events.html">Events</a>
+                    <a href="#">Exhibitions</a>
+                    <a href="./livestream.html">Live Streams</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="main">
+        <div class="navbar">
+            <div class="nav-imgs">
+               
+    
+            </div>
+            <h2 style="font-weight: 500;" >Exhibitions</h2>
+            <div class="right-nav"></div>
+        </div>
+        <div class="header1">
+            <div class="left-header">
+                <a href="#" class="active" onclick=handleclick(0)>Current Exhibition</a>
+                <a href="#" onclick=handleclick(1)>Upcoming Exhibition</a>
+                <a href="#" onclick=handleclick(2)>Past Exhibition</a>
+            </div>
+            <!-- <div class="right-header">
+                <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                    <input class="form-control" type="text" readonly />
+                    <span class="input-group-addon" style="color: #F78C2A;"><i
+                            class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+            </div> -->
+        </div>
+        <div class="ve-contents">
+            <div class="ve-content">
+                <div class="contents-header ch-mob">
+                    <p style="color: #F78C2A;">Virtual Exhibition</p>
+                    <p>5th of April at 5:30</p>
+                </div>
+    
+                <div class="left">
+                    <img src="../img/Image 2.png" alt="">
+                </div>
+                <div class="right">
+                    <div>
+                        <div class="contents-header">
+                            <p style="color: #F78C2A;">Virtual Exhibition</p>
+                            <p>5th of April at 5:30</p>
+                        </div>
+                        <h3>The Great Maestro</h3>
+                        <p style="color: #7C7C7C;">#Theme #Digital Art #Graphics</p>
+                        <p class="content-desc">What is going to happen in the exhibition. Description.Lorem ipsum dolor sit
+                            amet, consectetur adipiscing elit.
+                            Nullam
+                            ac luctus nunc. Maecenas ac felis suscipit, tempus mauris ut, aliquam nisi. Donec condimentum,
+                            ex id eleifend
+                            venenatis,
+                            augue metus</p>
+                    </div>
+    
+                    <div>
+                        <h5 style="color: #F78C2A;">More in the Exhibition</h5>
+                        <div class="content-imgs">
+                            <img src="../img/Image 2.png" alt="">
+                            <img src="../img/Image 2.png" alt="">
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+            <div class="ve-content ve-content-inverse">
+                <div class="left">
+                    <img src="../img/Image 2.png" alt="">
+                </div>
+                <div class="right">
+                    <div>
+                        <div class="contents-header">
+                            <p style="color: #F78C2A;">Virtual Exhibition</p>
+                            <p>5th of April at 5:30</p>
+                        </div>
+                        <h3>The Great Maestro</h3>
+                        <p style="color: #7C7C7C;">#Theme #Digital Art #Graphics</p>
+                        <p class="content-desc">What is going to happen in the exhibition. Description.Lorem ipsum dolor sit
+                            amet,
+                            consectetur adipiscing elit.
+                            Nullam
+                            ac luctus nunc. Maecenas ac felis suscipit, tempus mauris ut, aliquam nisi. Donec condimentum,
+                            ex id
+                            eleifend
+                            venenatis,
+                            augue metus</p>
+                    </div>
+    
+                    <div>
+                        <h5 style="color: #F78C2A;">More in the Exhibition</h5>
+                        <div class="content-imgs">
+                            <img src="../img/Image 2.png" alt="">
+                            <img src="../img/Image 2.png" alt="">
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    <!----datepicker js-->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                autoclose: true,
+                todayHighlight: true
+            }).datepicker('update', new Date());
+
+        });
+        const handleclick = (num) => {
+            document.querySelectorAll('.left-header a').forEach((item) => {
+                item.classList.remove('active')
+            })
+            document.querySelectorAll('.left-header a')[num].classList.add('active')
+
+            console.log('clicked', num)
+
+        }
+    </script>
+    <script src="./script.js"></script>
+    <script>
+        var height = document.getElementById("navBar").offsetTop;
+        window.onscroll = function () {
+            if (window.pageYOffset > height) {
+                document.getElementById('navBar').classList.add('fixed');
+                [...document.querySelectorAll('.nav_link')].map(function (el) {
+                    el.style.color = "white";
+                })
+            }
+            else {
+                document.getElementById('navBar').classList.remove('fixed');
+                [...document.querySelectorAll('.nav_link')].map(function (el) {
+                    el.style.color = "#3d3d3d";
+                })
+            }
+        };
+    </script>
+    </body>
+    
+    </html>

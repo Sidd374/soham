@@ -1,0 +1,443 @@
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+        type="text/css">
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+<style>
+    body {
+        background: url('./images/homeBg.png');
+    }
+
+    .emp-profile {
+        padding: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        border-radius: 0.5rem;
+        background: #fff;
+    }
+
+    .profile-img {
+        text-align: center;
+    }
+
+    .profile-img img {
+        width: 70%;
+        height: 100%;
+    }
+
+    .profile-img .file {
+        position: relative;
+        overflow: hidden;
+        margin-top: -20%;
+        width: 70%;
+        border: none;
+        border-radius: 0;
+        font-size: 15px;
+        background: #212529b8;
+    }
+
+    .profile-img .file input {
+        position: absolute;
+        opacity: 0;
+        right: 0;
+        top: 0;
+    }
+
+    .profile-head h5 {
+        color: #333;
+    }
+
+    .profile-head h6 {
+        color: #0062cc;
+    }
+
+    .profile-edit-btn {
+        border: none;
+        border-radius: 1.5rem;
+        width: 70%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+
+    .proile-rating {
+        font-size: 12px;
+        color: #818182;
+        margin-top: 5%;
+    }
+
+    .proile-rating span {
+        color: #495057;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .profile-head .nav-tabs {
+        margin-bottom: 5%;
+    }
+
+    .profile-head .nav-tabs .nav-link {
+        font-weight: 600;
+        border: none;
+    }
+
+    .profile-head .nav-tabs .nav-link.active {
+        border: none;
+        border-bottom: 2px solid #0062cc;
+    }
+
+    .profile-work {
+        padding: 14%;
+        margin-top: -15%;
+    }
+
+    .profile-work p {
+        font-size: 12px;
+        color: #818182;
+        font-weight: 600;
+        margin-top: 10%;
+    }
+
+    .profile-work a {
+        text-decoration: none;
+        color: #495057;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .profile-work ul {
+        list-style: none;
+    }
+
+    .profile-tab label {
+        font-weight: 600;
+    }
+
+    .profile-tab p {
+        font-weight: 600;
+        color: #0062cc;
+    }
+
+
+    a {
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
+        text-decoration: none;
+    }
+
+    .btn {
+        text-transform: uppercase;
+    }
+
+    .btn.btn-lg {
+        padding: 6px 30px;
+    }
+
+    .thumbnail-title {
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .img-thumb-bg {
+        padding: 0;
+        overflow: hidden;
+        min-height: 200px;
+        position: relative;
+        border-radius: 3px;
+        background-position: center;
+        background-color: transparent;
+        background-image: url('https://t4.ftcdn.net/jpg/03/89/18/91/240_F_389189105_AJ7HJZAIV72z7DoNUizHoH9ADlZD6y87.jpg');
+    }
+
+    .img-thumb-bg p {
+        color: #fff;
+        margin-bottom: 0;
+        line-height: 16px;
+    }
+
+    .img-thumb-bg .overlay {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+        background: rgba(0, 0, 0, 0);
+        background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 50%, #000000 100%);
+        background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 50%, #000000 100%);
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 50%, #000000 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #000000 100%);
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 50%, #000000 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(50%, rgba(0, 0, 0, 0)), color-stop(100%, #000000));
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#000000', GradientType=0);
+    }
+
+    .img-thumb-bg .caption {
+        bottom: -5px;
+        height: 100px;
+        font-size: 12px;
+        position: absolute;
+        padding: 0 20px 20px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .img-thumb-bg .caption .tag a {
+        color: #fff;
+        padding: 0 5px;
+        font-size: 12px;
+        border-radius: 2px;
+        display: inline-block;
+        text-transform: uppercase;
+        background-color: #2980B9;
+    }
+
+    .img-thumb-bg .caption .title {
+        margin-top: 5px;
+        font-size: 18px;
+        line-height: 20px;
+        text-transform: uppercase;
+    }
+
+    .img-thumb-bg .caption .title a {
+        color: #fff;
+    }
+
+    .img-thumb-bg .caption .title a:hover {
+        color: #2980B9;
+    }
+
+    .img-thumb-bg .caption .meta-data {
+        color: #777;
+        font-size: 12px;
+        line-height: 12px;
+        margin-bottom: 15px;
+    }
+
+    .img-thumb-bg .caption .meta-data a {
+        color: #777;
+    }
+
+    .img-thumb-bg .caption .meta-data a .fa {
+        color: #2980B9;
+    }
+
+    .img-thumb-bg .caption .meta-data a:hover {
+        color: #2980B9;
+    }
+
+    .img-thumb-bg .caption .content {
+        display: none;
+    }
+
+    .img-thumb-bg:hover .overlay {
+        background: rgba(46, 49, 58, 0.8);
+    }
+
+    .img-thumb-bg:hover .caption {
+        bottom: 60px;
+    }
+
+    .img-thumb-bg:hover .caption .content {
+        display: block;
+    }
+</style>
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="data:image/jpeg;base64,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"
+                        alt="" />
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h5>
+                        NGMA, Delhi
+                    </h5>
+                    <h6>
+                        National Gallery of Modern Art. Indian Ministry of Culture, Delhi
+                        <i class="bi bi-facebook"></i>
+                    </h6>
+                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                <i class="bi bi-facebook"></i>
+                <div class="container" style="height: 10px; width:100px; margin:5px">
+                   <a href=""><i class="fa fa-share-alt" aria-hidden="true" ></i></a> 
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-google" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>LINK</p>
+                    <a href="">Website Link</a><br />
+                    <a href="">Events</a><br />
+                    <a href="">People</a>
+                    <a href="href=https://developer.mozilla.org/" style="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-share" viewBox="0 0 16 16">
+                            <path
+                                d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+                        </svg>
+                    </a>
+
+
+
+
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane container active" id="home">...</div>
+                <i class="bi bi-facebook"></i>
+                <div class="tab-pane container fade" id="menu1">hello</div>
+                <div class="tab-pane container fade" id="menu2">...</div>
+            </div>
+            <div class="container" style="margin: 20px;">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="thumbnail img-thumb-bg" style="margin: 5px;">
+                            <div class="overlay"></div>
+                            <div class="caption">
+                                <div class="tag"><a href="#">ART</a></div>
+                                <div class="title"><a href="#">ART NAME</a></div>
+                                <div class="clearfix">
+                                    <span class="meta-data">By <a href="">Admin</a>DATE</span>
+                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i>
+                                            4</a></span>
+                                </div>
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro
+                                        qui quo expedita voluptas ab iure dolore.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="thumbnail img-thumb-bg" style="margin: 5px;">
+                            <div class="overlay"></div>
+                            <div class="caption">
+                                <div class="tag"><a href="#">ART</a></div>
+                                <div class="title"><a href="#">ART NAME</a></div>
+                                <div class="clearfix">
+                                    <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
+                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i>
+                                            4</a></span>
+                                </div>
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro
+                                        qui quo expedita voluptas ab iure dolore.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="thumbnail img-thumb-bg" style="margin: 5px;">
+                            <div class="overlay"></div>
+                            <div class="caption">
+                                <div class="tag"><a href="#">ART</a></div>
+                                <div class="title"><a href="#">ART NAME</a></div>
+                                <div class="clearfix">
+                                    <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
+                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i>
+                                            4</a></span>
+                                </div>
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro
+                                        qui quo expedita voluptas ab iure dolore.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="thumbnail img-thumb-bg" style="margin: 5px;">
+                            <div class="overlay"></div>
+                            <div class="caption">
+                                <div class="tag"><a href="#">ART</a></div>
+                                <div class="title"><a href="#">ART NAME</a></div>
+                                <div class="clearfix">
+                                    <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
+                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i>
+                                            4</a></span>
+                                </div>
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro
+                                        qui quo expedita voluptas ab iure dolore.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="thumbnail img-thumb-bg" style="margin: 5px;">
+                            <div class="overlay"></div>
+                            <div class="caption">
+                                <div class="tag"><a href="#">ART</a></div>
+                                <div class="title"><a href="#">ART NAME</a></div>
+                                <div class="clearfix">
+                                    <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
+                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i>
+                                            4</a></span>
+                                </div>
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro
+                                        qui quo expedita voluptas ab iure dolore.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="thumbnail img-thumb-bg" style="margin: 5px;">
+                            <div class="overlay"></div>
+                            <div class="caption">
+                                <div class="tag"><a href="#">ART</a></div>
+                                <div class="title"><a href="#">ART NAME</a></div>
+                                <div class="clearfix">
+                                    <span class="meta-data">By <a href="">Admin</a>on 29/06/2016</span>
+                                    <span class="meta-data pull-right"><a href=""><i class="fa fa-heart-o"></i>
+                                            4</a></span>
+                                </div>
+                                <div class="content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nulla porro
+                                        qui quo expedita voluptas ab iure dolore.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

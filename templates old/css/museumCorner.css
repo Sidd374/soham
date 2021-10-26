@@ -1,0 +1,134 @@
+/* Posts Section */
+.posts-2{
+    margin: 3rem;
+}
+.posts-container-2{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.post-card-2{
+    width: 43vw;
+    position: relative;
+    margin-bottom: 2rem;
+    transition: all 0.2s;
+    text-decoration: none;
+    color: #3d3d3d;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-radius: 12px;
+}
+.post-card:hover .post_like-icon{
+    display: block;
+}
+.post-card:hover .post-card > img{
+    transform: scale(1.2);
+}
+.post-card-content-1 > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.post_picture-icon, .post_video-icon, .post_audio-icon,.post_museum-icon{
+    position: absolute;
+    top: 4%;
+    left: 3%;
+    transform: translate(-5%,-4%);
+    font-size: 1.5rem;
+    border-radius: 20%;
+    background: rgba(250, 250, 250, 0.7);
+    padding: 0.6rem;
+}
+.post-date-2{
+    font-size: 1.1rem;
+}
+.post_calender-icon{
+    font-size: 1.5rem;
+    border-radius: 20%;
+    background: rgba(250, 250, 250, 0.7);
+    margin-right: 0.6rem;
+}
+.post-heading{
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #3d3d3d;
+}
+.post-info{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+.post-info > img{
+    width: 3rem;
+    margin-right: 0.6rem;
+}
+.post-info-name{
+    font-size: 1.3rem;
+    color: #3d3d3d;
+    font-weight: 600;
+}
+.post-info-likesView{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: rgb(243, 242, 242);
+    padding: 1rem 0;
+}
+
+.post-info-likesView > button{
+    font-size: 1rem;
+    width: 50%;
+    text-align: center;
+    border: none;
+    background-color: rgb(243, 242, 242);
+    color: #3d3d3d;
+}
+.post-info-likesView > button:not(:last-child){
+    border-right: 1px solid #3d3d3d;
+}
+.post-card-container{
+    height: 16rem;
+    display: flex;
+}
+.post-card-content-1{
+    width: 60%;
+}
+.post-card-content-2{
+    width: 40%;
+    padding: 1rem;
+}
+
+
+
+/* Post Media queries */
+@media(max-width: 1020px){
+    .posts-container{
+        column-count: 3;
+    }
+}
+@media(max-width: 800px){
+    .posts{
+        margin: 1rem;
+    }
+}
+@media(max-width: 700px){
+    .posts-container{
+        column-count: 2;
+    }
+}
+@media(max-width: 560px){
+    .posts-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .post-card{
+        display: block;
+        margin: 1rem auto;
+        width: 60%;
+    }
+}

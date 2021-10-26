@@ -1,0 +1,100 @@
+.edit_profile{
+    position: relative;
+    width: 60%;
+    margin: 3rem 6rem;
+}
+.edit_profile  > .back_icon >  i{
+    color: black;
+    position: absolute;
+    left: -7%;
+    top: 1%;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+.edit_profile > h1{
+    font-size: 2rem;
+}
+.edit_profile > p{
+    font-size: 1.3rem;
+    line-height: 27px;
+}
+
+.edit_profile-form{
+    margin-top: 2rem;
+}
+.edit_profile-form > .form_group > #profile_image{
+    display: none;
+}
+.edit_profile-form > .form_group:first-child{
+    display: flex;
+    align-items: center;
+}
+.edit_profile-form .form_group{margin-bottom: 1rem;}
+.edit_profile-form > .form_group > img{
+    padding: 0.1rem;
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
+}
+.edit_profile-form > .form_group .profile_image-label{
+    background-color: #efefef;
+    color: #3d3d3d;
+    font-size: 1.2rem;
+    padding: 0.8rem;
+    margin-left: 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.edit_profile-form > strong{
+    display: block;
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem 0;
+}
+.edit_profile-form > .form_groups{
+    display: flex;
+    justify-content: space-between;
+}
+.edit_profile-form > .form_groups > .form_group{width: 40%;}
+.edit_profile-form .form_group > .form-label{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #3d3d3d;
+}
+.edit_profile-form .form_group > .form-input{
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: #3d3d3d;
+    border: 1px solid #333;
+}
+
+.form_btns{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.form_btn{
+    padding: 0.9rem 3.5rem;
+    font-size: 1.1rem;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.form_btn-reset{
+    background-color: #e4e4e4;
+    color: #3d3d3d;
+    margin-right: 1rem;
+    border: 1px solid #3d3d3d;
+}
+.form_btn-save{
+    background-color: #e74c3c;
+    color: white;
+}

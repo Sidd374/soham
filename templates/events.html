@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="images/5-soham.png">
+    <!-- Font Family -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/0ccd48ad8b.js" crossorigin="anonymous"></script>
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/events.css">
+
+    <title>So-ham</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="header">
+        <div class="header_div">
+            <img class="header_img header_img-1" src="../img/5-soham.png" alt="so-ham logo">
+            <img class="header_img header_img-2" src="../img/2-sanskriti.png" alt="">
+            <img class="header_img header_img-3" src="../img/MOC Final LOGO (1).png" alt="MOC logo">
+            <img class="header_img header_img-4" src="../img/4-NGMA - 1.png" alt="NGMA logo">
+        </div>
+        <div class="header_div">
+            <h1 class="header_heading">So'Ham</h1>
+        </div>
+        <div class="header_div header_div-btn">
+            <div class="header_div-userImg"><img src="../img/user.png" alt=""></div>
+            <a href="./submitForm.html" class="header_div-submit">Submit</a>
+        </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section class="navigation" id="navBar">
+        <div class="nav">
+            <a class="nav_link" href="./homePage.html">Home</a>
+            <i class="fa fa-bars nav_icon" aria-hidden="true"></i>
+            <a class="nav_link" href="./theme.html">Theme of the month</a>
+            <a class="nav_link" href="./blog.html">Blog</a>
+            <a class="nav_link" href="./museumCorner.html">Museum's Corner</a>
+            <a class="nav_link" href="./about.html">About us</a>
+            <a class="nav_link" href="./contact.html">Contact us</a>
+            <div class="nav_dropdown">
+                <button class="nav_dropbtn nav_link">More...
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="nav_dropdown-content">
+                    <a href="./events.html">Events</a>
+                    <a href="./exhibitions.html">Exhibitions</a>
+                    <a href="./livestream.html">Live Streams</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="events">
+        <div class="events_header">
+            <img class="events_header-img" src="../img/events_1.jpeg" alt="event_1">
+            <h1 class="events_heading">Events</h1>
+            <div class="events_navigation">
+                <a class="btn btn-all active" href="#" id="" onclick="displaycards('all') , toogleActiveClass('all')">All</a>
+                <a class="btn btn-lecture" href="#" onclick="displaycards('lecture'), toogleActiveClass('lecture')">Lectures</a>
+                <a class="btn btn-workshop" href="#" onclick="displaycards('workshop'), toogleActiveClass('workshop')">Workshop and Seminars</a>
+                <a class="btn btn-talk" href="#" onclick="displaycards('talk'), toogleActiveClass('talk')">Talks & Tours</a>
+                <a class="btn btn-film" href="#">Film & Performance</a>
+                <a class="btn btn-special" href="#">Special Events</a>
+            </div>
+            <div class="dropdown">
+                <div class="default_option">All</div>  
+                <ul>
+                  <li>All</li>
+                  <li>Delhi</li>
+                  <li>Mumbai</li>
+                  <li>Bangalore</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="events_content">
+            <div id="myCalendarWrapper"></div>
+            <div class="events_card events_card-lecture">
+                <img src="../img/events_1.jpeg" alt="">
+                <div class="events_card-content">
+                    <span>Friday, May 17, 2021</span>
+                    <h1>NAIMISHA Summer Art Program.</h1>
+                    <small>
+                        Lecture <br>
+                        11:00 AM TO 12:00 PM<br>
+                    </small>
+                    <p>Due to the ongoing coronavirus health crisis, we regret that all in-person events have been canceled through June 30, 2021.</p>
+                </div>
+            </div>
+            <div class="events_card events_card-workshop">
+                <img src="../img/e&e_9.jpeg" alt="">
+                <div class="events_card-content">
+                    <span>Friday, March 13, 2020 - June 30, 2021</span>
+                    <h1>The Soul Speaker | Curator of Lives</h1>
+                    <small>
+                        Workshop and Seminars <br>
+                        10:00am - 5:00pm<br>
+                    </small>
+                    <p>Due to the ongoing coronavirus health crisis, we regret that all in-person events have been canceled through June 30, 2021.</p>
+                </div>
+            </div>
+            <div class="events_card events_card-talk">
+                <img src="../img/events_2.jpeg" alt="">
+                <div class="events_card-content">
+                    <span>Friday, March 13, 2020 - June 30, 2021</span>
+                    <h1>NAIMISHA</h1>
+                    <small>
+                        Talks & Tours <br>
+                        10:00am - 5:00pm<br>
+                    </small>
+                    <p>Due to the ongoing coronavirus health crisis, we regret that all in-person events have been canceled through June 30, 2021.</p>
+                </div>
+            </div>
+            <div class="events_card events_card-workshop">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8-4pQJlGnym6P-p86_vdFHj23n2WKVweNWg&usqp=CAU" alt="">
+                <div class="events_card-content">
+                    <span>Friday, March 13, 2020 - June 30, 2021</span>
+                    <h1>Art Adda</h1>
+                    <small>
+                        Workshop and Seminars <br>
+                        10:00am - 5:00pm<br>
+                    </small>
+                    <p>Due to the ongoing coronavirus health crisis, we regret that all in-person events have been canceled through June 30, 2021.</p>
+                </div>
+            </div>
+    </section>
+    <script src="../events.js"></script>
+    <script>
+        const nextYear = new Date().getFullYear() + 1;
+        const myCalender = new CalendarPicker('#myCalendarWrapper', {
+            // If max < min or min > max then the only available day will be today.
+            min: new Date(),
+            max: new Date(nextYear, 10) // NOTE: new Date(nextYear, 10) is "Sun Nov 01 <nextYear>"
+        });
+    
+        const currentDateElement = document.getElementById('current-date');
+        currentDateElement.textContent = myCalender.value;
+    
+        const currentDayElement = document.getElementById('current-day');
+        currentDayElement.textContent = myCalender.value.getDay();
+    
+        const currentToDateString = document.getElementById('current-datestring');
+        currentToDateString.textContent = myCalender.value.toDateString();
+    
+        myCalender.onValueChange((currentValue) => {
+            currentDateElement.textContent = currentValue;
+            currentDayElement.textContent = currentValue.getDay();
+            currentToDateString.textContent = currentValue.toDateString();
+    
+            console.log(`The current value of the calendar is: ${currentValue}`);
+        });
+    </script>
+</body>
+</html>
