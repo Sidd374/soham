@@ -12,8 +12,6 @@ app = Flask(__name__,
             static_url_path='',
             static_folder='Soham/static')
 
-server = app.server
-
 app.secret_key = "374375376"
 app.permanent_session_lifetime = timedelta(days=1)
 app.static_folder = 'static'
