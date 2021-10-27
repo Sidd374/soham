@@ -30,15 +30,15 @@
       </div>
       <nav>
         <ul>
-          <li><a style="color:white" href="/about">About</a></li>
+          <li><a href="#">About</a></li>
         </ul>
         <ul>
-          <li><a style="color:white" href="/contact">Contact</a></li>
+          <li><a href="#">Contact</a></li>
         </ul>
 
         <div class="buttons">
-          <a href="/login" class="login" >Log in</a>
-          <a class="btn btn_1 signup" style="color:white" href="#form">Sign up</a>
+          <a href="/login" class="login">Log in</a>
+          <a class="btn btn_1 signup" href="#form">Sign up</a>
         </div>
       </nav>
     </header>
@@ -467,32 +467,32 @@
     </div>
   </div>
   <div class="form_right">
-    <form action="" class="form">
+    <form action="/" class="form" method="POST">
       <img src="./img/5-soham.png" alt="">
       <h2>Welcome to Soham</h2>
       <p>Find new ideas to try</p>
       <div class="form_group">
         <i class="fa fa-user-circle" aria-hidden="true"></i>
-        <input type="text" placeholder="Full Name">
+        <input type="text" name="displayname" placeholder="Full Name">
         <span>&nbsp;</span>
       </div>
       <div class="form_group">
         <i class="fa fa-user-circle" aria-hidden="true"></i>
-        <input type="text" placeholder="Username">
+        <input type="text" name="username" placeholder="Username">
         <span>&nbsp;</span>
       </div>
       <div class="form_group">
         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-        <input type="text" placeholder="Email">
+        <input type="text" name="email" placeholder="Email">
         <span>&nbsp;</span>
       </div>
       <div class="form_group">
         <i class="fa fa-key" aria-hidden="true"></i>
-        <input type="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Password">
         <i class="fa fa-eye" aria-hidden="true"></i>
       </div>
-      <a class="form_btn" href="#">CONTINUE</a>
-      <span class="orSpan">OR</span>
+      <button type="submit" class="form_btn">SIGN UP</button>
+        <span class="orSpan">OR</span>
 
       <div class="social_form_group" style="background-color: rgb(66, 103, 178);">
           <i class="fa fa-facebook-official" aria-hidden="true"></i>

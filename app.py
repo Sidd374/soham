@@ -40,7 +40,7 @@ app.config.update(
     MAIL_PORT=465,
     MAIL_USE_TLS=False,
     MAIL_USE_SSL=True,
-    MAIL_USERNAME='sohamnoreply@gmail.com',
+    MAIL_USERNAME='soham.mail.noreply@gmail.com',
     MAIL_PASSWORD='Soham123!'
 )
 
@@ -87,7 +87,7 @@ def index():
     return render_template("SohamLogIn.html")
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST', 'GET'])
 def reg():
     if "username" in request.form and "email" in request.form and "password" in request.form and "displayname" in request.form:
         username = request.form['username']
