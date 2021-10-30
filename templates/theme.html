@@ -165,7 +165,7 @@
       <img class="theme_img" src="{{theme_post.guid}}" alt="" />
       <div class="theme_content">
         <p>
-          {{ theme_post.post_content }}
+          {{ theme_post.post_content |safe}}
         </p>
       </div>
     </section>
@@ -181,9 +181,9 @@
 
         <ul class="blog-list">
             {%  if (theme_comments is defined) and theme_comments %}
-          {% for comment in theme_comment %}
+          {% for comment in theme_comments %}
           <li class="blog-list-item">
-            <div class="blog-name">{{ comment.comment_author}}</div>
+            <div class="blog-name"><img class="blog-img" src="{{ comment.pp_link }}"/>{{ comment.comment_author}}</div>
             <div class="comment-msg">{{ comment.comment_content }}</div>
           </li>
             {% endfor %}

@@ -7,6 +7,7 @@ from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 import pytz
 from werkzeug.security import generate_password_hash, check_password_hash
 import dash
+from bs4 import BeautifulSoup
 
 app = Flask(__name__,
             static_url_path='',
@@ -20,18 +21,6 @@ app.config["MYSQL_HOST"] = "43.225.54.56"
 app.config["MYSQL_USER"] = "sohamgu4_ngma"
 app.config["MYSQL_PASSWORD"] = "ngmaMysql*123"
 app.config["MYSQL_DB"] = "sohamgu4_ngma_db"
-
-# class Comments:
-#     def __init__(self, comment_id, comment_post_id, comment_author, comment_author_email, comment_content,
-#                  comment_parent, user_id):
-#         self.comment_id = comment_id
-#         self.comment_post_id = comment_post_id
-#         self.comment_author_email = comment_author_email
-#         self.comment_author = comment_author
-#         self.comment_content = comment_content
-#         self.comment_parent = comment_parent
-#         self.user_id = user_id
-
 
 db = MySQL(app)
 
@@ -401,9 +390,29 @@ def theme(theme_id):
     theme_posts_cursor.execute("SELECT * FROM ngma2_themes WHERE ID=%s", [theme_id])
     theme_post = theme_posts_cursor.fetchone()
 
+    list(theme_post['post_content'])
+
     theme_comments_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
     theme_comments_cursor.execute("SELECT * FROM ngma2_theme_comments WHERE comment_post_ID=%s", [theme_id])
     theme_comments = theme_comments_cursor.fetchall()
+
+    for comment in theme_comments:
+        author_id_cursor=db.connection.cursor(MySQLdb.cursors.DictCursor)
+        em = comment['comment_author_email']
+        author_id_cursor.execute("SELECT * FROM ngma2_users WHERE user_email=%s", [em])
+        author_details = author_id_cursor.fetchone()
+        author_current = author_details['ID']
+
+        comment_pp_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+        comment_pp_cursor.execute(
+            "SELECT * FROM ngma2_posts WHERE(post_author=%s AND post_status=%s AND post_parent=%s)",
+            (author_current, 'inherit', '0'))
+        profile_pic = comment_pp_cursor.fetchone()
+        if profile_pic is not None:
+            comment['pp_link'] = profile_pic['guid']
+        else:
+            comment['pp_link'] = "https://plusvalleyadventure.com/wp-content/uploads/2020/11/default-user-icon-8.jpg"
+        comment_pp_cursor.close()
 
     return render_template("theme.html", theme_post=theme_post, theme_comments=theme_comments)
 
@@ -650,4 +659,3 @@ if __name__ == '__main__':
     app.debug = True
     app.run()
 
-# theme.html theme.css blog.html blog.css base.css
