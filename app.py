@@ -6,8 +6,7 @@ from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 import pytz
 from werkzeug.security import generate_password_hash, check_password_hash
-import dash
-from bs4 import BeautifulSoup
+
 
 app = Flask(__name__,
             static_url_path='',
