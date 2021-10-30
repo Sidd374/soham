@@ -397,7 +397,7 @@ def theme(theme_id):
     theme_comments = theme_comments_cursor.fetchall()
 
     for comment in theme_comments:
-        author_id_cursor=db.connection.cursor(MySQLdb.cursors.DictCursor)
+        author_id_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
         em = comment['comment_author_email']
         author_id_cursor.execute("SELECT * FROM ngma2_users WHERE user_email=%s", [em])
         author_details = author_id_cursor.fetchone()
