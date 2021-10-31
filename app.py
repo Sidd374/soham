@@ -369,13 +369,13 @@ def contact():
     return render_template("contact.html")
 
 
-# @app.route('/blog', methods=['POST', 'GET'])
-# def blog():
+@app.route('/blog', methods=['POST', 'GET'])
+def blog():
 #     comment_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
 #     comment_cursor.execute("SELECT * FROM ngma2_comments WHERE comment_post_ID=%s",(comment_post_id))
 #
 #     obj = comment_cursor.fetchall()
-#     return render_template("blog.html",obj = obj)
+    return render_template("blog.html") #,obj = obj)
 
 
 @app.route('/museum')
