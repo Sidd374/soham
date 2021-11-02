@@ -7,7 +7,6 @@ from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 import pytz
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 app = Flask(__name__,
             static_url_path='',
             static_folder='Soham/static')
@@ -289,12 +288,15 @@ def homepage():
 
         post_id = one_post['ID']
         home_photo_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-        home_photo_cursor.execute("SELECT * FROM ngma2_posts WHERE (post_parent=%s AND post_type=%s AND guid is NOT NULL)", (post_id,'attachment'))
+        home_photo_cursor.execute(
+            "SELECT * FROM ngma2_posts WHERE (post_parent=%s AND post_type=%s AND guid is NOT NULL)",
+            (post_id, 'attachment'))
         display_photo = home_photo_cursor.fetchone()
         # one_post['guid'] = display_photo['guid']
 
         view_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-        view_cursor.execute("SELECT * FROM ngma2_postmeta WHERE(post_id=%s AND meta_key=%s)",(post_id,'_exc_views_count'))
+        view_cursor.execute("SELECT * FROM ngma2_postmeta WHERE(post_id=%s AND meta_key=%s)",
+                            (post_id, '_exc_views_count'))
         view_count = view_cursor.fetchone()
         one_post['views'] = view_count['meta_value']
 
@@ -322,6 +324,12 @@ def post(post_id):
     post_page['display_name'] = author_name['display_name']
     post_author_cursor.close()
 
+    post_author_pp_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+    post_author_pp_cursor.execute("SELECT * FROM ngma2_posts WHERE(post_author=%s AND post_status=%s AND post_parent=%s)", ([author_current], 'inherit', '0'))
+    author_pp = post_author_pp_cursor.fetchone()
+    post_page['author_pp'] = author_pp['guid']
+    post_author_pp_cursor.close()
+
     post_follow_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
     post_follow_cursor.execute(
         "SELECT COUNT(follower_id) AS total FROM ngma2_exc_followers WHERE (follower_author_id=%s AND follower_status=%s)",
@@ -336,6 +344,34 @@ def post(post_id):
     comment_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
     comment_cursor.execute("SELECT * FROM ngma2_comments WHERE comment_post_ID=%s", [post_id])
     post_comments = comment_cursor.fetchall()
+
+    for comment in post_comments:
+        author_email_current = comment['comment_author_email']
+        author_email_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+        author_email_cursor.execute("SELECT ID FROM ngma2_users WHERE user_email=%s", [author_email_current])
+        author = author_email_cursor.fetchone()
+
+        comment_pp_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+        comment_pp_cursor.execute(
+            "SELECT * FROM ngma2_posts WHERE(post_author=%s AND post_status=%s AND post_parent=%s)",
+            (author['ID'], 'inherit', '0'))
+        profile_pic = comment_pp_cursor.fetchone()
+        if profile_pic is not None:
+            comment['pp_link'] = profile_pic['guid']
+        else:
+            comment[
+                'pp_link'] = "https://plusvalleyadventure.com/wp-content/uploads/2020/11/default-user-icon-8.jpg"
+        comment_pp_cursor.close()
+
+    self_pp_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+    self_pp_cursor.execute("SELECT * FROM ngma2_posts WHERE(post_author=%s AND post_status=%s AND post_parent=%s)",
+                           (session['user_id'], 'inherit', '0'))
+    self_pp = self_pp_cursor.fetchone()
+
+    if self_pp is not None:
+        post_page['self_pp_link'] = profile_pic['guid']
+    else:
+        post_page['self_pp_link'] = "https://plusvalleyadventure.com/wp-content/uploads/2020/11/default-user-icon-8.jpg"
 
     return render_template("artDescription.html", post_comments=post_comments, post_page=post_page,
                            post_children=child_posts)
@@ -371,11 +407,11 @@ def contact():
 
 @app.route('/blog', methods=['POST', 'GET'])
 def blog():
-#     comment_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-#     comment_cursor.execute("SELECT * FROM ngma2_comments WHERE comment_post_ID=%s",(comment_post_id))
-#
-#     obj = comment_cursor.fetchall()
-    return render_template("blog.html") #,obj = obj)
+    #     comment_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+    #     comment_cursor.execute("SELECT * FROM ngma2_comments WHERE comment_post_ID=%s",(comment_post_id))
+    #
+    #     obj = comment_cursor.fetchall()
+    return render_template("blog.html")  # ,obj = obj)
 
 
 @app.route('/museum')
@@ -442,19 +478,20 @@ def hall():
 
 @app.route('/profile/<user_id>')
 def profile(user_id):
-
     profile_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
     profile_cursor.execute("SELECT * FROM ngma2_users WHERE ID= %s", [user_id])
     profile_details = profile_cursor.fetchone()
 
     profile_picture_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-    profile_picture_cursor.execute("SELECT * FROM ngma2_posts WHERE(post_author=%s AND post_status=%s AND post_parent=%s)", (user_id, 'inherit', '0'))
+    profile_picture_cursor.execute(
+        "SELECT * FROM ngma2_posts WHERE(post_author=%s AND post_status=%s AND post_parent=%s)",
+        (user_id, 'inherit', '0'))
     profile_pic = profile_picture_cursor.fetchone()
 
     if profile_pic['guid'] is not None:
         profile_details['pp_link'] = profile_pic['guid']
     else:
-        profile_details['pp_link']= "https://so-ham.in/wp-content/uploads/2021/09/61_5315.jpg"
+        profile_details['pp_link'] = "https://so-ham.in/wp-content/uploads/2021/09/61_5315.jpg"
 
     like_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
     like_cursor.execute("SELECT COUNT(vote_id) AS total FROM ngma2_exc_votes WHERE (author_id=%s AND status=%s)",
@@ -490,7 +527,6 @@ def profile(user_id):
     # profile_liked_cursor.execute("SELECT * FROM ngma2_posts INNER JOIN ngma2_exc_votes ON ngma2_posts.post_author=ngma2_exc_votes.user_id")
     # liked_posts = profile_liked_cursor.fetchall()
 
-
     for one_profile_post in profile_posts:
         profile_post_id = one_profile_post['ID']
         profile_post_like_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -503,11 +539,12 @@ def profile(user_id):
 
         profile_photo_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
         profile_photo_cursor.execute("SELECT * FROM ngma2_posts WHERE (post_parent=%s AND post_type=%s)",
-                                  (profile_post_id, 'attachment'))
+                                     (profile_post_id, 'attachment'))
         display_photo = profile_photo_cursor.fetchone()
 
         profile_view_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-        profile_view_cursor.execute("SELECT * FROM ngma2_postmeta WHERE(post_id=%s AND meta_key=%s)",(profile_post_id, '_exc_views_count'))
+        profile_view_cursor.execute("SELECT * FROM ngma2_postmeta WHERE(post_id=%s AND meta_key=%s)",
+                                    (profile_post_id, '_exc_views_count'))
         profile_view_count = profile_view_cursor.fetchone()
         one_profile_post['views'] = profile_view_count['meta_value']
 
@@ -563,8 +600,8 @@ def profile(user_id):
     #     else:
     #         one_post['guid'] = "http://www.tgsin.in/images/joomlart/demo/default.jpg"
 
-
-    return render_template("userProfile.html", profile_details=profile_details, posts=profile_posts) #, liked_posts = liked_posts)
+    return render_template("userProfile.html", profile_details=profile_details,
+                           posts=profile_posts)  # , liked_posts = liked_posts)
 
 
 @app.route('/profile/follow/<follower_author_id>', methods=['POST', 'GET'])
@@ -619,7 +656,7 @@ def profile_like(author_id, post_id):
     if 'user' in session:
         profile_like_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
         profile_like_cursor.execute("SELECT * FROM ngma2_exc_votes WHERE (post_id=%s AND user_id=%s)",
-                                  (post_id, session['user_id']))
+                                    (post_id, session['user_id']))
         liked = profile_like_cursor.fetchone()
 
         if liked is None:
@@ -632,7 +669,7 @@ def profile_like(author_id, post_id):
         elif liked['status'] == 1:
             profile_unlike_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
             profile_unlike_cursor.execute("UPDATE ngma2_exc_votes SET status=%s WHERE user_id=%s AND post_id=%s",
-                                  (0, session['user_id'], post_id))
+                                          (0, session['user_id'], post_id))
             db.connection.commit()
 
         else:
@@ -642,7 +679,7 @@ def profile_like(author_id, post_id):
                 (1, session['user_id'], post_id))
             db.connection.commit()
 
-        return redirect(url_for('profile', user_id= author_id))
+        return redirect(url_for('profile', user_id=author_id))
     else:
         return "Please log in!"
 
@@ -657,4 +694,3 @@ def profile_like(author_id, post_id):
 if __name__ == '__main__':
     app.debug = True
     app.run()
-

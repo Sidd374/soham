@@ -106,7 +106,7 @@
             
             <div class="art_info">
                 <div class="art_info-content">
-                    <img src={{ post_page.guid }} alt="">
+                    <img src={{ post_page.author_pp }} alt="">
                     <span>
                         {{ post_page.display_name }}
                         </br>
@@ -126,13 +126,17 @@
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane active">
                             <div class="comment">
-                                <img src="https://so-ham.in/wp-content/uploads/2021/03/FB_IMG_1613620252476-150x150.jpg" alt="">
                                 <span>
                                     {% if (post_comments is defined) and post_comments %}
                                         {% for comment in post_comments %}
+                                            <div class="comment">
+                                <img src={{ comment.pp_link }} alt="">
+                                <span>
                                             {{ comment.comment_author }} <small>{{ comment.comment_date }}</small>
                                         </br>
                                         <p>{{ comment.comment_content }}</p>
+                                            </span>
+                            </div>
                                         {% endfor %}
                                     {% endif %}
 
@@ -140,7 +144,7 @@
                                 </span>
                             </div>
                             <div class="user_comment">
-                                <img src="https://so-ham.in/wp-content/uploads/2020/06/NAV-KANT-150x150.jpg" alt="">
+                                <img src={{ post_page.self_pp_link }} alt="">
                                 <input type="text" placeholder="Add a comment...">
                             </div>
                         </div>
