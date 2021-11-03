@@ -62,30 +62,18 @@
         <div class="blog_bg">&nbsp;</div>
         <h1 class="blog_heading">BLOG</h1>
         <div class="blog_container">
-            <div class="blog_card">
-                <div class="blog_card-img">
-                    <img src="../img/Soham 100 Images/DSC0244-Large-1024x684.jpg" alt="">
+            {% for post in blog_posts %}
+                <div class="blog_card">
+
+                    <div class="blog_card-content">
+                        <h1>{{ post.post_title}}</h1>
+                        <h2>NGMA New Delhi</h2>
+                        <span>{{ post.post_date}}</span>
+                        <p>{{ post.post_content }}</p>
+                        <a href="blog_post/{{ post.ID }}">Read More</a>
+                    </div>
                 </div>
-                <div class="blog_card-content">
-                    <h1>Indigenous Australia</h1>
-                    <h2>Ngma New Delhi</h2>
-                    <span>Posted on  November 27, 2018</span>
-                    <p>National Gallery of Modern Art (New Delhi) is hosting an exhibition of artists belonging to the Indigenous Australian land. Frenchesca Cubilio, the curator of the exhibition ‘Indigenous Australia: Masterworks from…					National Gallery of Modern Art (New Delhi) is hosting an exhibition of artists belonging to the Indigenous Australian land. Frenchesca Cubilio, the curator of the exhibition ‘Indigenous Australia: Masterworks from…</p>
-                    <a href="#">Read More</a>
-                </div>
-            </div>
-            <div class="blog_card">
-                <div class="blog_card-content">
-                    <h1>Indigenous Australia</h1>
-                    <h2>Ngma New Delhi</h2>
-                    <span>Posted on  November 27, 2018</span>
-                    <p>National Gallery of Modern Art (New Delhi) is hosting an exhibition of artists belonging to the Indigenous Australian land. Frenchesca Cubilio, the curator of the exhibition ‘Indigenous Australia: Masterworks from…					National Gallery of Modern Art (New Delhi) is hosting an exhibition of artists belonging to the Indigenous Australian land. Frenchesca Cubilio, the curator of the exhibition ‘Indigenous Australia: Masterworks from…</p>
-                    <a href="#">Read More</a>
-                </div>
-                <div class="blog_card-img">
-                    <img src="../img/Soham 100 Images/DSC0244-Large-1024x684.jpg" alt="">
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
     <script>

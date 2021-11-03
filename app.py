@@ -407,11 +407,11 @@ def contact():
 
 @app.route('/blog', methods=['POST', 'GET'])
 def blog():
-    #     comment_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-    #     comment_cursor.execute("SELECT * FROM ngma2_comments WHERE comment_post_ID=%s",(comment_post_id))
-    #
-    #     obj = comment_cursor.fetchall()
-    return render_template("blog.html")  # ,obj = obj)
+    blog_cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+    blog_cursor.execute("SELECT * FROM ngma2_blog")
+    blog_posts = blog_cursor.fetchall()
+
+    return render_template("blog.html",blog_posts=blog_posts)
 
 
 @app.route('/museum')
