@@ -17,6 +17,14 @@ body {
   border-radius: 10px;
   font-size: 20px;
 }
+.sym-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.symbol {
+  width: 45px;
+  padding-right: 10px;
+}
 .month-btn {
   background-image: linear-gradient(
     to right,
@@ -69,8 +77,6 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-.profile {
 }
 .profile > img {
   margin-right: 10px;
