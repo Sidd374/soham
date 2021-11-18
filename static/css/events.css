@@ -1,5 +1,5 @@
 body {
-  width: 100vw;
+  width: 100%;
 }
 .events {
   min-height: 60rem;
@@ -97,7 +97,9 @@ body {
   border: 8px solid;
   border-color: #e74c3c transparent transparent transparent;
 }
-
+.events {
+  width: 100%;
+}
 .events_content {
   position: relative;
   padding: 0 3rem;
@@ -278,4 +280,25 @@ body {
 
 #calendar #navigation-wrapper button:first-of-type {
   transform: rotate(180deg);
+}
+@media screen and (max-width: 1080px) {
+  .events_card {
+    flex-direction: column;
+  }
+  .events_card-content > h1,
+  .events_card-content > span {
+    font-size: 14px;
+  }
+  .events_card-content > small,
+  .events_card-content > p {
+    font-size: 10px;
+  }
+  .events_card > img {
+    width: 100%;
+    /* height: auto; */
+    object-fit: cover;
+  }
+  #calendar-wrapper {
+    position: relative;
+  }
 }
